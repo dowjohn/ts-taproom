@@ -23,7 +23,7 @@ export class AppComponent {
       new Keg("Star Platinum", "IPA", 0),
       new Keg("Gold Experience", "Golden Ale", 1),
       new Keg("Magician's Red", "Red Ale", 2),
-      new Keg("You thought this would be a sweet keg, but IT WAS ME, DIO.", "Evil", 3)
+      new Keg("You thought this would be a sweet keg, but IT WAS ME, DIO", "Sour", 3)
     ];
   }
   kegWasSelected(clickedKeg: Keg): void {

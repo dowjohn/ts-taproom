@@ -7,8 +7,9 @@ import {Keg} from './keg.model';
   template: `
   <div class="keg-form">
     <h3>Tap Keg:</h3>
-    <input placeholder="Bier Name" class="col-sm-6" #newName>
-    <input placeholder="Type" class="col-sm-6" #newType>
+    <input placeholder="Bier Name" class="col-sm-7 input-lg lol" #newName>
+
+    <input placeholder="Type" class="col-sm-6 input-lg lol" #newType>
     <button (click)="addKeg(newName, newType)" class="btn-warning btn-lg add-button">TAP</button>
   </div>
   `

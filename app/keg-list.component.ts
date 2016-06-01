@@ -11,7 +11,10 @@ import { NewKegComponent } from './new-keg.component';
   directives: [NewKegComponent],
   template: `
   <h3 *ngFor="#currentKeg of kegList" (click)="kegClicked(currentKeg)">
-    {{ currentKeg.name }}
+    {{ currentKeg.name }}:
+    {{ currentKeg.type }}
+    {{ currentKeg.pints}}
+    <button (click)="drawKeg(currentKeg)" class="btn-primary btn-sm add-button">Draw a Pint</button>
   </h3>
   <new-keg (onSubmitNewKeg)="createKeg($event)"></new-keg>
   `
@@ -29,5 +32,8 @@ export class KegListComponent {
   createKeg(newKeg: Keg): void {
     newKeg.id = this.kegList.length;
     this.kegList.push(newKeg);
+  }
+  drawKeg(selectedKeg) {
+      selectedKeg.pints -= 1;
   }
 }
