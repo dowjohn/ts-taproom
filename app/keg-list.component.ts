@@ -1,6 +1,7 @@
 import { Component, EventEmitter } from 'angular2/core';
 import { Keg } from './keg.model';
 import { NewKegComponent } from './new-keg.component';
+import { KegComponent } from './keg.component';
 // import {DonePipe} from './done.pipe';
 
 @Component({
@@ -8,14 +9,9 @@ import { NewKegComponent } from './new-keg.component';
   inputs: ['kegList'],
   outputs: ['onKegSelect'],
   // pipes: [DonePipe],
-  directives: [NewKegComponent],
+  directives: [NewKegComponent, KegComponent],
   template: `
-  <h3 *ngFor="#currentKeg of kegList" (click)="kegClicked(currentKeg)">
-    {{ currentKeg.name }}:
-    {{ currentKeg.type }}
-    {{ currentKeg.pints}}
-    <button (click)="drawKeg(currentKeg)" class="btn-primary btn-sm add-button">Draw a Pint</button>
-  </h3>
+  <keg-display *ngFor="#currentKeg of kegList" [keg]="currentKeg"></keg-display>
   <new-keg (onSubmitNewKeg)="createKeg($event)"></new-keg>
   `
 })
@@ -33,7 +29,7 @@ export class KegListComponent {
     newKeg.id = this.kegList.length;
     this.kegList.push(newKeg);
   }
-  drawKeg(selectedKeg) {
-      selectedKeg.pints -= 1;
-  }
+  // drawKeg(selectedKeg) {
+  //     selectedKeg.pints -= 1;
+  // }
 }
