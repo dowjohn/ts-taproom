@@ -6,7 +6,7 @@ import { KegListComponent } from './keg-list.component';
   selector: 'my-app',
   directives: [KegListComponent],
   template: `
-    <div class="container">
+    <div class="container imageTavern">
       <h1>Jojo's Bizarre Taphouse</h1>
       <keg-list
         [kegList]="kegs"

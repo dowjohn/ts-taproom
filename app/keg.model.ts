@@ -4,6 +4,11 @@ export class Keg {
   constructor(public name: string, public type: string, public id: number) {
   }
   public drawKeg = function() {
+    if(this.pints !== 0) {
       this.pints -= 1;
+    }
+  }
+  public replace = function() {
+    this.pints = 24;
   }
 }

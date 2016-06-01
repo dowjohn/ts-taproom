@@ -5,12 +5,13 @@ import { Keg } from './keg.model';
   selector: 'keg-display',
   inputs: ['keg'],
   template: `
-  <h3 (click)="kegClicked(currentKeg)"
-    [class.low]="keg.pints <= 10">
+  <h3 [class.low]="keg.pints <= 10">
     {{ keg.name }}:
     {{ keg.type }}
-    {{ keg.pints}}
-    <button (click)="keg.drawKeg()" class="btn-primary btn-sm add-button">Draw a Pint</button>
+    <span *ngIf="keg.pints === 0">Empty!</span>
+    <span *ngIf="keg.pints !== 0">{{ keg.pints }} Pints Left.</span>
+    <button *ngIf="keg.pints !== 0" (click)="keg.drawKeg()" class="btn-primary btn-sm add-button">Draw a Pint</button>
+    <button *ngIf="keg.pints <= 10" (click)="keg.replace()" class="btn-danger btn-sm add-button">Replace this keg</button>
   </h3>
   `
 })
