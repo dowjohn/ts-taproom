@@ -20,13 +20,15 @@ import { EditKegDetailsComponent } from './edit-keg-details.component';
   <edit-keg-details *ngIf="selectedKeg" [keg]="selectedKeg">
   </edit-keg-details>
   <br>
-  <new-keg (onSubmitNewKeg)="createKeg($event)"></new-keg>
+  <button *ngIf="!isAddFormShown" (click)="addFormToggle()" class="btn-lg btn-success col-sm-2 lol">Add a new keggggggggg</button>
+  <new-keg *ngIf="isAddFormShown" (onSubmitNewKeg)="[createKeg($event), addFormToggle()]"></new-keg>
   `
 })
 export class KegListComponent {
   public kegList: Keg[];
   public onKegSelect: EventEmitter<Keg>;
   public selectedKeg: Keg;
+  public isAddFormShown: boolean = false;
   constructor() {
     this.onKegSelect = new EventEmitter();
   }
@@ -38,6 +40,14 @@ export class KegListComponent {
     newKeg.id = this.kegList.length;
     this.kegList.push(newKeg);
   }
+  addFormToggle(): void {
+    if (!this.isAddFormShown) {
+      this.isAddFormShown = true;
+    } else {
+      this.isAddFormShown = false;
+    }
+  }
+
   // drawKeg(selectedKeg) {
   //     selectedKeg.pints -= 1;
   // }

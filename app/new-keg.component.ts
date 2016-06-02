@@ -1,5 +1,6 @@
 import {Component, EventEmitter} from 'angular2/core';
 import {Keg} from './keg.model';
+// import {KegListComponent} from './keg-list.component';
 
 @Component({
   selector: 'new-keg',
@@ -25,6 +26,8 @@ import {Keg} from './keg.model';
       </div>
       <div class='row'>
         <button (click)="addKeg(newBrand, newName, newType, newAbv, newPrice)" class="btn-warning btn-lg col-sm-2 lol">TAP</button>
+        <button (click)="doThing()" class="btn-default btn-lg col-sm-2 lol">Nevermind (This button currently doesn't do anything)</button>
+        <p>(or does it?)</p>
       </div>
     </div>
   </div>
